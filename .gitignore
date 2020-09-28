@@ -5,6 +5,8 @@ __pycache__/
 
 # C extensions
 *.so
+# Ignore all csv files
+*.csv
 
 # Distribution / packaging
 .Python
