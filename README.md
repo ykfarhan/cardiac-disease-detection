@@ -9,15 +9,19 @@ Our mission is to successfully predict heart conditions of incoming patients and
 
 For our initial exploration of the original data set and cleaning it in order to create a train-test split:
 
-`see: data_cleaning_cardiac.ipynb`
+`see:` [data_cleaning_cardiac.ipynb](https://github.com/ykfarhan/cardiac-disease-detection/blob/master/data_cleaning_cardiac.ipynb)
 
 For our feature engineering, visualization and modelling process:
 
-`see: modelling_process_cardiac.ipynb`
+`see:` [modelling_process_cardiac.ipynb](https://github.com/ykfarhan/cardiac-disease-detection/blob/master/modelling_process_cardio.ipynb)
 
 For the final prediction on the holdout test set:
 
-`see: Predicting_holdout_cardiac.ipynb`
+`see:` [Predicting_holdout_cardiac.ipynb](https://github.com/ykfarhan/cardiac-disease-detection/blob/master/Predicting_holdout_cardiac.ipynb)
+
+For the non-technical executive presentation:
+
+`see:` [Presentantion.pdf](https://github.com/ykfarhan/cardiac-disease-detection/blob/master/presentation_cardiac_disease.pdf)
 
 ## Queries:
 
@@ -31,25 +35,55 @@ We wanted to answer the following questions through our analysis and modelling o
 ```
 
 ## Modelling
-After cleaning our original data set, we were left with 90% of the observations. Then, we split this data into two parts: the train data and test data. We used our train data to fit different classification models. Our target to get the best possible recall score and to be able to interpret the importance of the features. We used recall score because we wanted to minimize the number patients with a heart condition that we fail to predict. We used grid search in conjunction with all our models. The results are the following:
+After cleaning our original data set, we were left with 90% of the observations. Then, we split this data into two parts: the train data and test data. We used our train data to fit different classification models. Our target to get the best possible recall score and to be able to interpret the importance of the features. We used recall score because we wanted to minimize the number patients with a heart condition that we fail to predict. We used grid search in conjunction with all our models to optimize the hyperparameters. The results are the following:
 
 ```
-1. Decision Tree: 0.70
-2. Random Forest: 0.70
-3. K-Nearest Neighbors: 0.70
-4. Logistic Regression: 0.63
-5. Voting Classifier: 0.70
+1. Decision Tree: 0.715
+2. Random Forest: 0.716
+3. K-Nearest Neighbors: 0.677
+4. Logistic Regression: 0.621
+5. Voting Classifier: 0.710
 ```
-We decided to use refit the decision tree model to our entire train set because of its high recall score and the benefit of being highly interpretable. Using this model on the test set we achieved a recall score of
+We decided to refit the decision tree model to our entire train set because of its high recall score and the benefit of being highly interpretable. Using this model on the test set we achieved a recall score of `0.699`. However, if we lowered our classification threshold from 0.5 to 0.36, our recall score jumps to almost ~ `0.84`. In terms of feature importance, Blood Pressure levels, Age and BMI were the most significant. 
 
 ## Visualizations
 
+ We made visualizations during our exploratory data analysis process and after our modelling process.
+ 
+ For visualizations during the E.D.A process:
+ 
+ `see:` [Class Balance](https://github.com/ykfarhan/cardiac-disease-detection/blob/master/visualizations/class_balance.png)
+ 
+ [Distrubution among some of the features](https://github.com/ykfarhan/cardiac-disease-detection/blob/master/visualizations/distplot.png)
+ 
+ [Feature histrograms by class](https://github.com/ykfarhan/cardiac-disease-detection/blob/master/visualizations/histograms_by_class.png)
+ 
+ For feature importance levels among different models:
+ 
+ `see:` [Feature importance of decision tree](https://github.com/ykfarhan/cardiac-disease-detection/blob/master/visualizations/feature_imp_dct.png)
+ 
+ [Logistic regression feature coefficients](https://github.com/ykfarhan/cardiac-disease-detection/blob/master/visualizations/feat_coef_logreg.png)
+ 
+ For anaylisis after modelling and prediction:
+ 
+ `see:` [Proportion with disease vs no-disease by groups](https://github.com/ykfarhan/cardiac-disease-detection/blob/master/visualizations/proportions_by_groups.png)
+
+[Proportion with disease among different age groups](https://github.com/ykfarhan/cardiac-disease-detection/blob/master/visualizations/disease_by_age.png)
 
 ## Conclusions
 
 ### Reccomendations
+* Use the predictive model in identifying patients with cardiac disease.
+* When a patient is checking in, measure the important features to identify cardiac disease.
+* Suggest non-emergency patients to take further tests to successfully identify heart condition.
+* Provide the emergency patients with appropriate healthcare.
 
 ### Future Work
+* Find the original data source in order to reduce assumptions made and correctly identify background and context.
+* Use bagging and boosting methods to try and increase recall score.
+* Find similar data sets that have a lot more features to work with.
+* Consult with a healthcare expert to in order to gain more knowledge about the ins and outs of medical facility.
+
 
 
 
