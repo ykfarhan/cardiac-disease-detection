@@ -7,7 +7,7 @@ __pycache__/
 *.so
 # Ignore all csv files
 *.csv
-
+*.pickle
 # Distribution / packaging
 .Python
 build/
